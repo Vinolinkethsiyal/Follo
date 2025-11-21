@@ -1,0 +1,36 @@
+import { test, expect } from '@playwright/test';
+
+test('test', async ({ page }) => {
+  await page.goto('https://test.folloit.com/login');
+  await page.getByRole('textbox', { name: 'Email address' }).click();
+  await page.getByRole('textbox', { name: 'Email address' }).fill('anithatestuser7@yopmail.com');
+  await page.getByRole('textbox', { name: 'Password' }).click();
+  await page.getByRole('textbox', { name: 'Password' }).fill('Test@123');
+  await page.getByRole('button', { name: 'Login' }).click();
+  await expect(page.getByRole('alert', { name: 'Let\'s get to work!' })).toBeVisible();
+  await page.getByLabel('18', { exact: true }).getByText('+7 more').click();
+  await page.locator('#fc-dom-49').getByText(':00pm testing concreate').click();
+  await expect(page.getByLabel('Details').getByText('testing concreate')).toBeVisible();
+  await page.getByRole('tab', { name: 'Attachments' }).click();
+  await page.getByRole('tab', { name: 'Comments' }).click();
+  await page.getByRole('tab', { name: 'History' }).click();
+  await expect(page.getByText('Project Admins Created')).toBeVisible();
+  await page.getByRole('tab', { name: 'Details' }).click();
+  await page.getByRole('button', { name: 'Close' }).click();
+  await page.getByLabel('18', { exact: true }).getByText('+7 more').click();
+  await page.locator('.fc-popover-body > div:nth-child(6) > .fc-event').click();
+  await expect(page.getByRole('paragraph').filter({ hasText: 'testing inspection' })).toBeVisible();
+  await page.getByRole('tab', { name: 'History' }).click();
+  await expect(page.getByText('Project Admins Created')).toBeVisible();
+  await page.getByRole('tab', { name: 'Attachments' }).click();
+  await page.getByRole('tab', { name: 'Comments' }).click();
+  await page.getByRole('heading', { name: 'inspectionInspection Details' }).click();
+  await expect(page.getByRole('button', { name: 'Close' })).toBeVisible();
+  await page.getByRole('button', { name: 'Close' }).click();
+  await page.getByLabel('18', { exact: true }).getByText('+7 more').click();
+  await page.locator('#fc-dom-49').getByText(':00pm testing crane').click();
+  await expect(page.getByRole('heading', { name: 'DeliveryCrane Booking Details' })).toBeVisible();
+  await page.getByRole('tab', { name: 'History' }).click();
+  await expect(page.getByText('Project Admins Created Crane')).toBeVisible();
+  await page.getByRole('button', { name: 'Close' }).click();
+});
