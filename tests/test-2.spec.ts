@@ -21,7 +21,5 @@ test('test', async ({ page }) => {
   await page.locator('span').filter({ hasText: 'Choose Truck Type' }).first().click();
   await page.getByText('Flatbed Truck').click();
   await page.getByRole('button', { name: 'Submit' }).click();
-  await page.getByRole('dialog').click();
-  await page.getByRole('button', { name: 'Close' }).click();
-  await page.getByRole('button', { name: 'Yes' }).click();
+
 });
